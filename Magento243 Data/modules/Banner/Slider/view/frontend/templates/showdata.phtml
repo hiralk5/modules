@@ -1,0 +1,65 @@
+<?php
+$collection = $block->getCollection();
+if ($collection!== null) {
+?>
+<div class="table-wrapper orders-history">
+    <div class="carousel-wrap"> 
+        <div class="owl-carousel" id="owlslider">
+        <?php
+			foreach ($collection->getData() as $item): 
+        ?>
+            <div class="item">
+                <img src="<?php echo $block->getImagePath().$item['image']; ?>" width="500" height="600"/>
+                <?php echo $item['description']."<br>"; ?>
+                <?php echo $item['name']; ?>
+                <input type="button" name="Button" value="Button">
+            </div>
+        <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<?php }	?>
+    <script type="text/javascript">
+    /*require([
+        'jquery',
+        'owlcarousel'
+        ], function ($) {
+            'use strict';
+                $(".owl-carousel").owlCarousel({
+                autoPlay: 3000,
+                margin:5,
+                items : 5,
+                itemsDesktop : [1199,5],
+                itemsDesktopSmall : [979,5],
+                itemsTablet : [768,5],
+                navigation : true,
+                pagination : false
+          });
+    });*/
+
+    /*{
+        "#owlslider": {
+            "owlcarousel": {
+                    "navigation" : true,
+                    "center": true,
+                    "margin":20,
+                    "responsiveClass":true,
+                    "responsive":{
+                        "0":{
+                            "items":1,
+                            "nav":true
+                        },
+                        "600":{
+                            "items":2,
+                            "nav":true
+                        },
+                        "1000":{
+                            "items":3,
+                            "nav":true
+                        }
+                    }
+                }
+        }
+    }
+*/
+</script>

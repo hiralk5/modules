@@ -1,0 +1,53 @@
+<?php
+
+namespace Label\Product\Ui\DataProvider\Product\Form;
+
+use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
+use Magento\Ui\DataProvider\AbstractDataProvider;
+use Magento\Ui\DataProvider\Modifier\ModifierInterface;
+use Magento\Ui\DataProvider\Modifier\PoolInterface;
+
+
+class ProductDataProvider extends \Magento\Catalog\Ui\DataProvider\Product\Form\ProductDataProvider
+{
+    
+    private $pool;
+
+    
+    public function __construct(
+        $name,
+        $primaryFieldName,
+        $requestFieldName,
+//        CollectionFactory $collectionFactory,
+        PoolInterface $pool,
+        array $meta = [],
+        array $data = []
+    ) {
+        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
+        $this->collection = $collectionFactory->create();
+        $this->pool = $pool;
+    }
+
+    
+    public function getData()
+    {
+        foreach ($this->pool->getModifiersInstances() as $modifier) {
+            $this->data = $modifier->modifyData($this->data);
+        }
+
+        return $this->data;
+    }
+
+    
+    public function getMeta()
+    {
+        $meta = parent::getMeta();
+
+       
+        foreach ($this->pool->getModifiersInstances() as $modifier) {
+            $meta = $modifier->modifyMeta($meta);
+        }
+
+        return $meta;
+    }
+}

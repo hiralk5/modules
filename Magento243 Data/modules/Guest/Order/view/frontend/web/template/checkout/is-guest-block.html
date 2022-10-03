@@ -1,0 +1,14 @@
+<!-- ko if: isLoggedIn() -->
+
+<div class="col-mp mp-12">
+    <input type="checkbox" name="is_guest" data-bind="unchecked: isGuest, attr: {id: 'place-order-is-guest'}"/>
+    <label data-bind="attr: {for: 'place-order-is-guest'}"><span data-bind="i18n: 'Is Guest'"></span></label>
+</div>
+<!-- /ko -->
+
+<!-- ko ifnot: isLoggedIn() -->
+
+<div class="col-mp mp-12">
+    <input type="checkbox" name="is_guest" data-bind="checked: isGuest, attr: {id: 'place-order-is-guest'}"/>
+    <label data-bind="attr: {for: 'place-order-is-guest'}"><span data-bind="i18n: 'Is Guest'"></span></label>
+<!-- /ko -->

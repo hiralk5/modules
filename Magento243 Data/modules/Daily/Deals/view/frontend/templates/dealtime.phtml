@@ -1,0 +1,15 @@
+<?php
+$helper = $this->helper('Daily\Deals\Helper\Data');
+$getProductSKU = $helper->getProductSKU();
+// $getCollection = $helper->getCollection();
+$getSaleExpireDate = $helper->getSaleExpireDate();
+$getSaleText = $helper->getSaleText();
+//Print Text title
+echo "-----------<pre>";
+// print_r($getCollection);
+?>
+<?= $getProductSKU; ?>
+
+<?= $getSaleExpireDate; ?>
+
+<?= $getSaleText; ?>

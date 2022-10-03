@@ -1,0 +1,22 @@
+<?php 
+$categoryCollection = $block->getCategoryCollection(); 
+
+?>
+<div class="carousel-wrap">
+    <div class="owl-carousel" id="owlslider">
+    <?php foreach ($categoryCollection as $key => $category) : ?> 
+        <div class="item">
+            <a href="<?= $category->getUrl() ?>" class="image">
+                <?php if ($category->getCategoryIcon()) : ?>
+                    <img src="<?= $block->getUrl() . $category->getCategoryIcon() ?>" alt="<?= $category->getName() ?>" width="100" height="100" />
+                <?php else: ?>
+                    <img src="<?= $block->getPlaceHolder() ?>" alt="<?= $category->getName() ?>" width="100" height="100" />
+                <?php endif; ?>
+                <span class="categoryname"><?= $category->getName() ?></span>
+            </a>
+         </div>
+    <?php endforeach; ?>            
+    </div>
+</div>
+
+        

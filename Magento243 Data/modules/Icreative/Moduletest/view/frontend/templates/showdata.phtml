@@ -1,0 +1,49 @@
+<?php
+
+	$collection = $block->getCollection();
+    // $collection->getData();
+if ($collection->count()) {
+?>
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?php echo __('Grid Record') ?></caption>
+        <thead>
+        <tr>
+            <th scope="col" class="col id"><?php echo __('ID') ?></th>
+            <th scope="col" class="col name"><?php echo __('Question') ?></th>
+            <th scope="col" class="col email"><?php echo __('Answer') ?></th>
+            <th scope="col" class="col telephone"><?php echo __('Status') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+				foreach ($collection as $item): ?>
+        <tr>
+            <td data-th="<?= $block->escapeHtml(__('ID')) ?>" class="col id">
+                <?php echo $item->getId() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Question')) ?>" class="col question">
+                <?php echo $item->getQuestion() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Answer')) ?>" class="col answer">
+                <?php echo $item->getAnswer() ?>
+            </td>
+            <td>
+                <img src="<?php echo $this->getUrl('pub/media').$user->getImg(); ?>" />
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Status')) ?>" class="col status">
+                <?php if($item->getStatus() == 1)
+                        { 
+                            echo "Enable";
+                        }else{ 
+                            echo "Disable"; 
+                        }?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php
+	}
+	?>

@@ -1,0 +1,44 @@
+<?php
+namespace Isguest\Order\Plugin\Checkout\Block;
+
+
+class LayoutProcessor
+{
+    /**
+     * @param \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
+     * @param array $jsLayout
+     * @return array
+     */
+    public function afterProcess(
+        \Magento\Checkout\Block\Checkout\LayoutProcessor $subject,
+        array $jsLayout
+    ) {
+
+
+        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+        ['shippingAddress']['children']['shipping-address-fieldset']['children'] = [
+            'component' => 'uiComponent',
+            'children' => [
+                'is_guest' => [
+                    'component' => 'Isguest_Order/js/view/isguest-checkbox',
+                    'config' => [
+                        'customScope' => 'shippingAddress',
+                        'template' => 'ui/form/field',
+                        'elementTmpl' => 'ui/form/element/checkbox',
+                        'options' => [],
+                        'id' => 'is_guest'
+                    ],
+                    'dataScope' => 'shippingAddress.is_guest',
+                    'label' => 'Is Guest',
+                    'provider' => 'checkoutProvider',
+                    'visible' => true,
+                    'validation' => [],
+                    'sortOrder' => 20,
+                    'id' => 'is_guest'
+                ]
+            ]
+        ];
+
+        return $jsLayout;
+    }
+}

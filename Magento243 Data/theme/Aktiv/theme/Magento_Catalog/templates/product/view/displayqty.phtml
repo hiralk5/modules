@@ -1,0 +1,64 @@
+<?php 
+/*$_product = $block->getProduct();//->getData();
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');//get current product
+    $productTypeInstance = $product->getTypeInstance();
+    if ($product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
+        $usedProducts = $productTypeInstance->getUsedProducts($product);
+        echo "if";
+    ?><span class="product-qty"></span> <?php
+         foreach ($usedProducts  as $child) { ?>
+                <div class="myli" id="div<?php echo $child->getId()?>" style="display:none;list-style:none">
+                    <?php 
+                    $productStockObj = $objectManager->get('Magento\CatalogInventory\Api\StockRegistryInterface')->getStockItem($child->getId());?>
+                    <span class="product-quantity"><?php echo "We have ".round($productStockObj->getData('qty'))." items in stock!";?></span>
+                </div>
+            <?php } ?>
+       
+<?php 
+    } else {
+        $productStockObj = $objectManager->get('Magento\CatalogInventory\Api\StockRegistryInterface')->getStockItem($product->getId());
+        echo "We have ".round($productStockObj->getData('qty'))." items in stock!";
+    }*/
+
+/*
+<script type="text/javascript">
+requirejs(['jquery','underscore'], function(jQuery,_){
+jQuery(window).load(function(){
+    jQuery( ".product-options-wrapper div" ).click(function() {
+        selpro();
+    });
+});
+function selpro () {
+    var selected_options = {};
+    jQuery('div.swatch-attribute').each(function(k,v){
+        var attribute_id = jQuery(v).attr('data-attribute-id');
+		var option_selected = jQuery(v).attr('data-option-selected');
+        //console.log(attribute_id, option_selected);
+        if(!attribute_id || !option_selected){ return;}
+        selected_options[attribute_id] = option_selected;
+    });
+
+    var product_id_index = jQuery('[data-role=swatch-options]').data('mageSwatchRenderer').options.jsonConfig.index;
+    var found_ids = [];
+    //console.log(product_id_index);
+    jQuery.each(product_id_index, function(product_id,attributes){
+        //console.log(product_id);
+        var productIsSelected = function(attributes, selected_options){
+            return _.isEqual(attributes, selected_options);
+        }
+        if(productIsSelected(attributes, selected_options)){
+            found_ids.push(product_id);
+        } 
+    });
+    
+    //console.log(found_ids);
+
+    if (found_ids.length) {
+        var selected_product_id = found_ids[0];
+        jQuery('.myli').css('display','none');
+        jQuery('#div'+selected_product_id).toggle();
+    }
+}
+});
+</script> */

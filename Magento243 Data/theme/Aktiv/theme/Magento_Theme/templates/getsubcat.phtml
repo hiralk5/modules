@@ -1,0 +1,13 @@
+<?php
+$category = $block->getCurrentCategory();
+$childrenCategories = $category->getChildrenCategories()->addAttributeToSelect('image');
+foreach ($childrenCategories as $item): ?>
+    <tr>
+        <td>
+            <a href="<?= $item->getUrl() ?>" class="image" data-th="<?= $item->getName() ?>"><img src="<?php echo $item->getImage(); ?>" height=200 width=200/></a>
+        </td>
+        <td>
+            <a href="<?= $item->getUrl() ?>" class="image" data-th="<?= $item->getName() ?>"><?php echo $item->getName() ?></a>
+        </td>
+    </tr>
+<?php endforeach; ?>

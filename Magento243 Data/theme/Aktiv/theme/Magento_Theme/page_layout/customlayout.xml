@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="1column"/>
+    <referenceContainer name="content" remove="true"/>
+    <referenceContainer name="content.aside" remove="true"/>
+    <referenceContainer name="catalog.leftnav" remove="true"/>
+    <referenceContainer name="main">
+        <container name="subcat" htmlTag="div" htmlClass="subcat">
+            <block class="Category\Attribute\Block\GetCatSubCatLayout" name="custom.attribute" template="Magento_Theme::getsubcat.phtml" before="-" />
+        </container>
+    </referenceContainer>
+</layout>

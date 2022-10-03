@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="2columns-left">
+    <body>
+         
+            <!-- <referenceBlock name="navigation.sections" /> -->
+            <!-- <move element="navigation.sections" destination="sidebar.main" /> -->
+         <!-- <move element="catalog.topnav" destination="sidebar.main" /> -->
+         <!-- <move element="catalog.topnav" destination="category.product.list.additional" before="-"/> -->
+        <referenceContainer name="content">
+            <block class="Module\Custom\Block\Product\NewProduct" name="newproduct.slider" template="Module_Custom::slider.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Magento\Catalog\ViewModel\Product\Listing\PreparePostData</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        
+
+        <referenceContainer name="content">
+            <container name="main-left" htmlClass="main left" htmlTag="div" before="-">
+                <container name="main-left-up-section" htmlClass="main left up section" htmlTag="div">
+                    <!-- <block class="Magento\Cms\Block\Block" name="left-section-up-main-page">
+                        <arguments>
+                          <argument name="block_id" xsi:type="string">categoryleftup</argument>
+                        </arguments>
+                    </block> -->
+                </container>
+                <container name="main-left-down-section" htmlClass="main left down section" htmlTag="div">
+                    <block class="Magento\Cms\Block\Block" name="left-section-down-main-page">
+                        <arguments>
+                          <argument name="block_id" xsi:type="string">categoryleftdown</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+            <container name="main-right" htmlClass="main right" htmlTag="div" after="main-left">
+                <container name="banner-section" htmlClass="banner-section" htmlTag="div">
+                    <container name="main-right-left-section" htmlClass="main right left section" htmlTag="div">
+                        <block class="Magento\Cms\Block\Block" name="right-section-main-page">
+                            <arguments>
+                              <argument name="block_id" xsi:type="string">categoryrightmiddle</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                    <container name="main-right-right-section" htmlClass="main right right section" htmlTag="div">
+                        <container name="main-right-right-up-section" htmlClass="main right rigth up section" htmlTag="div">
+                            <block class="Magento\Cms\Block\Block" name="right-section-up-main-page">
+                                <arguments>
+                                  <argument name="block_id" xsi:type="string">categoryrightrightup</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                        <container name="main-right-right-down-section" htmlClass="main right rigth down section" htmlTag="div">
+                            <block class="Magento\Cms\Block\Block" name="right-section-down-main-page">
+                                <arguments>
+                                  <argument name="block_id" xsi:type="string">categoryrightrightdown</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                    </container>
+                </container>
+            </container>
+            <referenceContainer name="content">
+                <container name="main-right-down-trending" htmlClass="main right down trending" htmlTag="div">
+                    <block class="Magento\Cms\Block\Block" name="main-right-down-trending-product">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">trendingproduct</argument>
+                        </arguments>
+                    </block>
+                    <container name="main-right-down-bestseller-product" htmlClass="main right down bestseller product" htmlTag="div">
+                        <block class="Magento\Cms\Block\Block" name="right-section-down-main-page-bestseller">
+                            <arguments>
+                              <argument name="block_id" xsi:type="string">bestseller</argument>
+                              <!-- popular product -->
+                            </arguments>
+                        </block>
+                    </container>
+                </container>
+                <container name="main-rigth-down-after-banner" htmlClass="main right down after banner" htmlTag="div">
+                    <block class="Beauty\Beautylever\Block\ProductCollection" name="beauty.productcollection"  template="Beauty_Beautylever::productcollection.phtml" />
+                    <!-- </block> -->
+                </container>
+                <container name="main-right-down" htmlClass="main right down" htmlTag="div">
+                    <container name="main-right-after-trending" htmlClass="main right after trending" htmlTag="div">
+                        <block class="Magento\Cms\Block\Block" name="before-trending-image">
+                            <arguments>
+                              <argument name="block_id" xsi:type="string">aftertrendingbanner</argument>
+                            </arguments>
+                        </block>
+                    </container>
+
+                    <container name="main-right-up-newarrival-product" htmlClass="main right up nrearrival product" htmlTag="div">
+                        <block class="Magento\Cms\Block\Block" name="right-section-down-main-page-newarrival">
+                            <arguments>
+                              <argument name="block_id" xsi:type="string">newproduct</argument>
+                              <!-- new product -->
+                            </arguments>
+                        </block>
+                    </container>
+
+                </container>
+            </referenceContainer> 
+        </referenceContainer>  
+    </body>
+</page>

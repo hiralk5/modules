@@ -1,0 +1,30 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <type name="Icreative\Moduletest\Controller\Index\Example">
+        <plugin name="Icreative\Moduletest_Plugin" type="Icreative\Moduletest\Plugin\ExamplePlugin" sortOrder="10" disabled="false"  />
+    </type>
+    <type name="Magento\Theme\Block\Html\Title">
+        <plugin name="Magento_Theme_PageTitle" type="Icreative\Moduletest\Plugin\PageHeading" sortOrder="10" disabled="false"  />
+    </type>
+    <type name="Magento\Theme\Block\Html\Topmenu">
+        <plugin name="Magento_Theme_Topmenu" type="Icreative\Moduletest\Plugin\GetHtml" sortOrder="30" disabled="false"  />
+    </type>
+<!-- 
+    <type name="Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection">
+        <plugin name="outofstock_display_atlast" type="Icreative\Moduletest\Plugin\Product\ProductList\Toolbar"/>
+    </type> -->
+
+    <!-- <type name="Magento\Catalog\Model\Layer">
+        <plugin name="Magento_Catalog_Model_Layer" type="Icreative\Moduletest\Plugin\Catalog\Model\Layer" sortOrder="20" disabled="false" />
+    </type> -->
+    <!-- <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="Magento_Catalog_ProductDefaultQty" type="Icreative\Moduletest\Plugin\ProductDefaultQty" sortOrder="10" disabled="false"  />
+    </type> -->
+    <!-- <type name="Magento\Weee\Block\Item\Price\Renderer">
+        <plugin name="Magento_Block_CartPrice" type="Icreative\Moduletest\Plugin\UnitDisplayPriceExclTax" sortOrder="20" disabled="false"  />
+    </type> -->
+    <!-- <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+       <plugin name="toolbar_instance" type="Icreative\Moduletest\Block\Product\ProductList\Toolbar" />
+    </type> -->
+    <!-- <preference for="Magento\Catalog\Block\Product\View" type="Icreative\Moduletest\Block\Catalog\Product\View" /> -->
+    <!-- <preference for="Magento\Catalog\Model\Product" type="Icreative\Moduletest\Model\Product" /> -->
+</config>

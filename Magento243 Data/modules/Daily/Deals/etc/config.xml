@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+   <default>
+       <daily_deals>
+           <general_conifg>
+               <is_active>1</is_active>
+               <product_sku></product_sku>
+               <sale_expire_date></sale_expire_date>
+               <sale_text></sale_text>
+           </general_conifg>
+       </daily_deals>
+   </default>
+</config>

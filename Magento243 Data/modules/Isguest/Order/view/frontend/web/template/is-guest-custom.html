@@ -1,0 +1,12 @@
+<div class="custom-checkbox">
+<!-- ko if: isLoggedIn() -->
+    <input type="checkbox" name="isguest" value="0" data-bind='unchecked: isGuest'/>
+    <label><span data-bind="i18n: 'Is Guest'">Is Guest</span></label>
+
+<!-- /ko -->
+
+<!-- ko ifnot: isLoggedIn() -->
+    <input type="checkbox" name="isguest" value="1" data-bind='checked: isGuest'/>
+    <label><span data-bind="i18n: 'Is Guest'">Is Guest</span></label>
+<!-- /ko -->
+</div>

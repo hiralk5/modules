@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <update handle="2columns-left"/>
+        <referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Product\View" name="sample_test_template" as="sample_test_template" template="Category_Attribute::product/view/sample.phtml"/>
+        </referenceContainer>
+        <!-- 
+     <referenceContainer name="main">
+            <block class="Ammertech\Module\Block\Productbycategory"
+                name="subcategory"
+                template="Ammertech_Module::Prodcutcollection.phtml"/>
+     </referenceContainer> -->
+     <referenceContainer name="page.wrapper">         
+          <container name="header.container" as="header_container" label="Page Header Container" htmlTag="header" htmlClass="page-header" before="main.content"/> 
+          <container name="page.top" as="page_top" label="After Page Header" after="header.container"/>
+     </referenceContainer>
+    </body>
+</page>

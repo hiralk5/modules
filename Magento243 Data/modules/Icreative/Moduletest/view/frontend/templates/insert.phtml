@@ -1,0 +1,16 @@
+
+    <form  method="post" action="<?= $block->getUrl('icreative/index/save') ?>" >
+		<label>Question</label><br>
+		<input type="text" name="question" required /><br>
+		<label>Answer</label><br>
+		<!-- <input type="textarea" name="answer" required /><br> -->
+		<textarea name="answer" rows="4" cols="50" required></textarea>
+		<label>Status</label><br>
+		<select name="status"><br>
+			<option value="1">Enable</option>
+			<option value="0">Disable</option>
+		</select><br></br>
+		<input type="submit" name="save" value="Save">
+		<input type="button" name="cancel" value="Cancel">
+	</form>
+
