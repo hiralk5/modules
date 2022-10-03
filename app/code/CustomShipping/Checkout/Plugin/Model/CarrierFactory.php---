@@ -1,0 +1,75 @@
+<?php
+
+namespace CustomShipping\Checkout\Plugin\Model;
+
+class CarrierFactory
+{
+    protected $scopeConfig;
+
+    protected $objectManager;
+
+    protected $_checkoutSession;
+
+    public function __construct(
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        \Magento\Framework\ObjectManagerInterface $objectManager,
+        \Magento\Checkout\Model\Session $_checkoutSession
+    ) {
+        $this->_scopeConfig = $scopeConfig;
+        $this->_objectManager = $objectManager;
+        $this->_checkoutSession = $_checkoutSession;
+    }
+
+    public function aroundGet(
+        \Magento\Shipping\Model\CarrierFactory $subject,
+        $Closure,
+        $carrierCode
+    ) {
+        /*Change your logic here based on your requirement.*/
+        /*$grandTotal = $this->_checkoutSession->getQuote()->getGrandTotal();
+        if($grandTotal > 99 && $carrierCode != 'freeshipping'){
+            return false;
+        }*/
+        /*Change your logic here based on your requirement.*/
+
+        $className = $this->_scopeConfig->getValue(
+            'carriers/' . $carrierCode . '/category',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
+        if (!$className) {
+            return false;
+        }
+        $carrier = $this->_objectManager->get($className);
+        $carrier->setId($carrierCode);
+        return $carrier;
+    }
+
+    public function aroundCreate(
+        \Magento\Shipping\Model\CarrierFactory $subject,
+        $Closure,
+        $carrierCode,
+        $storeId = null
+    ) {
+        /*Change your logic here based on your requirement.*/
+        /*$grandTotal = $this->_checkoutSession->getQuote()->getGrandTotal();
+        if($grandTotal > 99 && $carrierCode != 'freeshipping'){
+            return false;
+        }*/
+        /*Change your logic here based on your requirement.*/
+
+        $className = $this->_scopeConfig->getValue(
+            'carriers/' . $carrierCode . '/category',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+        if (!$className) {
+            return false;
+        }
+        $carrier = $this->_objectManager->create($className);
+        $carrier->setId($carrierCode);
+        if ($storeId) {
+            $carrier->setStore($storeId);
+        }
+        return $carrier;
+    }
+}

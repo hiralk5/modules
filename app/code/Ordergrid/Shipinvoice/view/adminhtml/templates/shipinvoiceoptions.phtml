@@ -1,0 +1,57 @@
+<select name="popupoption" id="popupoption">
+    <option>Please select</option>
+    <option value="ship">Shipmental</option>
+    <option value="invoice">Invoice</option>
+    
+</select>
+<div id="popup-modal">
+    <h2>TADAAAAAAAA</h2>
+    <?php 
+    if(isset($_GET['popupoption'])){
+        $popupoption = $_POST['popupoption']; 
+        echo $popupoption;
+        ?>
+            <div name="cookie-popup-window">
+            <?php
+        if ($popupoption == 'invoice') {
+             echo $this->getLayout()->createBlock('Magento\Sales\Block\Adminhtml\Order\Comments\View')->setTemplate('view.phtml')->toHtml(); 
+
+        }if ($popupoption == 'ship') {
+             echo $this->getLayout()->createBlock('Magento\Shipping\Block\Adminhtml\View\Items')->setTemplate('Magento_Shipping::view/items.phtml')->toHtml();
+        }?>
+        </div>
+    <?php }
+    ?>
+</div>
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Custom Form Popup',
+                buttons: [{
+                    text: $.mage.__('Close'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#popup-modal'));
+            $('#popupoption').on('change', function () {
+                 var value = $(this).val();
+                $('#popup-modal').modal('openModal');
+            }
+        }
+    );
+</script>

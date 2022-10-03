@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<!--     <type name="Magento\Shipping\Model\CarrierFactory">
+        <plugin name="custom_condition_in_shipping_methods" type="CustomShipping\Checkout\Plugin\Model\CarrierFactory" sortOrder="10"/>
+    </type> -->
+    <!-- <type name="Magento\Shipping\Model\Rate\Result">
+        <plugin name="restrict_shippingmethod" type="CustomShipping\Checkout\Plugin\ShippingMethod" sortOrder="500" />
+    </type> -->
+    <type name="Magento\Shipping\Model\Shipping">
+        <plugin name="CustomShipping_Checkout_Model_Shipping" sortOrder="10"
+            type="CustomShipping\Checkout\Plugin\ApplyShipping"/>
+    </type>
+    <!-- <type name="Magento\Shipping\Model\Rate\Result">
+        <plugin name="restrict_shippingmethod"
+                type="CustomShipping\Checkout\Plugin\Shipping\Rate\Result\Append"/>
+        <plugin name="restrict_shippingmethod_custom"
+                type="CustomShipping\Checkout\Plugin\Shipping\Rate\Result\GetAllRates"/>
+    </type> -->
+</config>

@@ -1,0 +1,81 @@
+<div id="popup-modal">
+    <div id="cookie-popup-window"> 
+        <div class="newsletter-popup-part-second" id="newsletter-popup-part-second">
+            <?php 
+                echo  $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('newsletter_popup')->toHtml();
+            ?>
+        </div>
+        <div class="newsletter-popup-part-one" id="newsletter-popup-part-one">
+            <?php echo $this->getLayout()->createBlock('Magento\Newsletter\Block\Subscribe')->setTemplate('subscribe.phtml')->toHtml(); ?> 
+        </div>
+    </div>
+</div>
+<?php 
+/*$objectManager =  \Magento\Framework\App\ObjectManager::getInstance();
+$request = $objectManager->get('\Magento\Framework\App\Request\Http');
+$enable = $this->helper('Newsletter\Homepage\Helper\Data')->getConfig('homepage/general/enable');
+    
+$height = $this->helper('Newsletter\Homepage\Helper\Data')->getConfig('homepage/general/height');
+$width = $this->helper('Newsletter\Homepage\Helper\Data')->getConfig('homepage/general/width');*/
+/*
+$viewModel = $block->getViewModel();
+$enable = $viewModel->getAdminConfigData('homepage/general/enable');
+$height = $viewModel->getAdminConfigData('homepage/general/width');
+$width = $viewModel->getAdminConfigData('homepage/general/width');
+?>
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            'mage/cookies'
+        ],
+        function(
+            $,  
+            modal,
+            cookie
+        ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Sign Up With Your Email',
+                 clickableOverlay: true,
+                buttons: [{
+                    text: $.mage.__('Close'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                        $('#popup-modal').html(" ");
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#popup-modal'));
+            if ($.cookie('popuplogintext') != 'open') {
+                $("#popup-modal").modal('openModal');
+                $.cookie('popuplogintext', 'open', { path: '/' }, {expires: 60});//Set the cookies
+                <?php if ($viewModel->getCustomActionName() == 'cms_index_index' && $enable == 1) { ?>
+                $('#popup-modal').modal('openModal');
+            <?php } else { 
+                        if($enable == 0){?>
+                            $('#popup-modal').modal('openModal');
+                <?php }
+                    } ?>
+
+            }
+
+            
+               
+            var h = <?php echo $height ?>;
+            var w =  <?php echo $width ?>;
+            
+            
+            $(".modal-inner-wrap").height(h); 
+            $(".modal-inner-wrap").width(w); 
+
+        }
+        // var popup = modal(options, $('#cookie-popup-window'));
+);
+</script>
+*/

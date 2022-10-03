@@ -1,0 +1,38 @@
+<?php
+
+namespace CustomShipping\Checkout\Plugin;
+
+class ShippingMethod
+{
+    public function beforeAppend($subject, $result)
+    {
+        if (!$result instanceof \Magento\Quote\Model\Quote\Address\RateResult\Method) {
+            return [$result];
+        }
+
+        if ($this->isMethodRestricted($result)) {
+            $result->setIsDisabled(true);
+        }
+
+        return [$result];
+    }
+
+    public function isMethodRestricted($shippingModel)
+    {
+        $code = $shippingModel->getCarrier();
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info('Your text message');
+        $logger->info($code);
+        $restrictedMethod = ['customshipping'];
+
+        if ($restrictedMethod && in_array($code, $restrictedMethod)) {
+            $logger->info('in if');
+            $logger->info(json_encode($restrictedMethod));
+            return null;
+        }
+        $logger->info('return true;');
+        return true;
+    }
+}
