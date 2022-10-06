@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceBlock name="product.info.price">
-            <block class="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable" name="wk.info.pricerange"  template="Producttype_Offerminmax::price_range.phtml" />
-        </referenceBlock>
-    </body>
-</page>

@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-    <menu>
-        <add id="Crud_Grid::faq" title="Faq Custom" module="Crud_Grid" sortOrder="51" resource="Crud_Grid::faq"/>
-        
-        <add id="Crud_Grid::managefaq" title="Manage Faq" module="Crud_Grid" sortOrder="10" action="crud_grid/faqicreative/index" resource="Crud_Grid::faq" parent="Crud_Grid::faq"/>
-    </menu>
-</config>
