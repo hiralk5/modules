@@ -25,10 +25,10 @@ class CartAddProductComplete implements \Magento\Framework\Event\ObserverInterfa
         
         $cartData = $this->_checkoutSession->getQuote()->getAllVisibleItems();
         $cartDataCount = count($cartData);         
-        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
+        /*$writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
         $logger = new \Zend_Log();
         $logger->addWriter($writer);
-        $logger->info('Your text message');
+        $logger->info('Your text message');*/
         if($cartDataCount > 1){
             for ($x = 0; $x < $cartDataCount; $x++) {
                 if ( $x%2 != 0 ){
